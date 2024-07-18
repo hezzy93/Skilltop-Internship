@@ -1,0 +1,46 @@
+Retrieves a list of all users.
+---
+tags:
+  - Users
+
+responses:
+  200:
+    description: Request executed successfully
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          created_at:
+            type: string
+            description: time of creation of the instance
+          updated_at:
+             type: string
+             description: time of last update of the instance
+          id:
+            type: string
+            description: The uuid of the instance
+          user_id:
+            type: integer
+            description: user's id (Auto increment)
+          email:
+             type: string
+             description: user's email
+          password:
+             type: string
+             description: user's password
+          name:
+             type: string
+             description: user's  name
+          user_role:
+             type: integer
+             description: 0 -> Employee, 1 -> Super Admin, 2 -> Admin, 3 -> Manager, 4 -> Sales Employee, 5 -> Finance
+          active:
+             type: integer
+             description: 0 -> account enabled, 1 -> account disabled
+          deleted:
+            type: integer
+            description: 0 -> deleted, 1 -> not deleted
+  400:
+    description: No user found
