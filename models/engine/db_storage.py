@@ -26,7 +26,6 @@ class DBStorage:
         IMS_MYSQL_PWD = getenv('IMS_MYSQL_PWD')
         IMS_MYSQL_HOST = getenv('IMS_MYSQL_HOST')
         IMS_MYSQL_DB = getenv('IMS_MYSQL_DB')
-        IMS_ENV = getenv('IMS_ENV')
 
         # uncomment the below line if you are using mysqldb
         # self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
@@ -35,8 +34,6 @@ class DBStorage:
                                              IMS_MYSQL_PWD,
                                              IMS_MYSQL_HOST,
                                              IMS_MYSQL_DB))
-        if IMS_ENV == "test":
-            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """query on the current database session"""
