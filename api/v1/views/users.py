@@ -106,5 +106,7 @@ def put_user(user_id):
     for key, value in data.items():
         if key not in ignore:
             setattr(user, key, value)
+        else:
+            return make_response(jsonify(message="Update fails"), 501) 
     storage.save()
     return make_response(jsonify(message="User updated"), 200)
