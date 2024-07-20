@@ -9,10 +9,10 @@ parameters:
     required: true
     description: The id of the user to retrieve
 responses:
-  404:
-    description: user not found!
   200:
     description: Request executed successfully
+  404:
+    description: User not found!
     schema:
       properties:
         __class__:
@@ -26,9 +26,6 @@ responses:
         id:
           type: string
           description: The uuid of the instance
-        user_id:
-          type: string
-          description: The user's id
         email:
           type: string
           description: user's email

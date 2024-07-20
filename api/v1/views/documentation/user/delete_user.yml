@@ -9,7 +9,7 @@
         required: true
         description: The unique id of the user
     responses:
-      404:
-        description: user not found!
       200:
-        description: request executed successfully
+        description: Request executed successfully
+      404:
+        description: User not found!

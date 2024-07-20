@@ -19,7 +19,9 @@
             type: string
 
     responses:
+      201:
+        description: Ok
       400:
         description: Missing name/email/password or not a JSON
-      201:
-        description: Ok (user created)
+      409:
+        description: Email exists
