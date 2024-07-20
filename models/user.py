@@ -11,16 +11,25 @@ from models.base_model import BaseModel, Base
 
 
 class User(BaseModel, Base):
-    """Representation of a user """
+    """Representation of a user
+
+    User_role:
+        0(Employee), 1(Super Admin), 2(Admin)
+        3(Manager), 4(Sales Employee), 5(Finance)"
+    Active:
+        0(deactivate) 1(Active)"
+    Deleted;
+        0(false) 1(true)
+    """
     __tablename__ = 'users'
 
     name = Column(String(150), nullable=False)
     email = Column(String(200), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
-    user_role = Column(Integer, default=0, nullable=False, comment="0(Employee), 1(Super Admin), 2(Admin), 3(Manager), 4(Sales Employee), 5(Finance)")
-    active = Column(Integer, default=1, nullable=False, comment="0(deactivate) 1(Active)")
-    deleted = Column(Integer, default=0, nullable=False, comment="0(false) 1(true)")
-    
+    user_role = Column(Integer, default=0, nullable=False)
+    active = Column(Integer, default=1, nullable=False)
+    deleted = Column(Integer, default=0, nullable=False)
+
     def __init__(self, *args, **kwargs):
         """initializes user"""
         super().__init__(*args, **kwargs)
