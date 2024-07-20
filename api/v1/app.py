@@ -4,7 +4,6 @@ from os import environ
 from flask import Flask, render_template, make_response, jsonify
 from flask_cors import CORS
 from flasgger import Swagger
-from flasgger.utils import swag_from
 from models import storage
 from api.v1.views import app_views
 
@@ -29,12 +28,12 @@ def not_found(error):
       404:
         description: a resource was not found
     """
-    return make_response(jsonify({'error': "Not found"}), 404)
+    return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 app.config['SWAGGER'] = {
-    'title': 'IMS Restful API',
-    'uiversion': 1
+    'title': 'IMS Restful API Documentation',
+    'uiversion': 3
 }
 
 Swagger(app)
