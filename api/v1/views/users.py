@@ -37,6 +37,7 @@ def register_user():
     except IntegrityError:
         return make_response(jsonify(message="Email already exists"), 409)
 
+
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/user/all_users.yml')
 def get_users():
@@ -83,6 +84,7 @@ def delete_user(user_id):
     storage.save()
 
     return make_response(jsonify({}), 200)
+
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 @swag_from('documentation/user/put_user.yml')
