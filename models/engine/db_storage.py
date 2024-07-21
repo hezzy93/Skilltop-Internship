@@ -7,10 +7,12 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+from dotenv import load_dotenv
 import models
 from models.base_model import BaseModel, Base
 from models.setting import Setting
 from models.user import User
+load_dotenv()  # take environment variables from .env.
 
 classes = {"User": User, "Setting": Setting}
 
@@ -27,9 +29,7 @@ class DBStorage:
         IMS_MYSQL_HOST = getenv('IMS_MYSQL_HOST')
         IMS_MYSQL_DB = getenv('IMS_MYSQL_DB')
 
-        # uncomment the below line if you are using mysqldb
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-        # self.__engine = create_engine('mariadb+mariadbconnector://{}:{}@{}/{}'.
                                       format(IMS_MYSQL_USER,
                                              IMS_MYSQL_PWD,
                                              IMS_MYSQL_HOST,
