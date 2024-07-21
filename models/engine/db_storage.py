@@ -28,8 +28,8 @@ class DBStorage:
         IMS_MYSQL_DB = getenv('IMS_MYSQL_DB')
 
         # uncomment the below line if you are using mysqldb
-        # self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-        self.__engine = create_engine('mariadb+mariadbconnector://{}:{}@{}/{}'.
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
+        # self.__engine = create_engine('mariadb+mariadbconnector://{}:{}@{}/{}'.
                                       format(IMS_MYSQL_USER,
                                              IMS_MYSQL_PWD,
                                              IMS_MYSQL_HOST,
