@@ -1,1 +1,0 @@
-IMS_MYSQL_USER=rest_api_ims_db_user IMS_MYSQL_PWD=rest_api_ims_db_pwd IMS_MYSQL_HOST=localhost IMS_MYSQL_DB=rest_api_ims_db  python3 -m api.v1.app
