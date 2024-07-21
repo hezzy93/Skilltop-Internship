@@ -11,9 +11,10 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 jsonschema==4.23.0
 jsonschema-specifications==2023.12.1
-mariadb==1.1.10
 MarkupSafe==2.1.5
 mistune==3.0.2
+mysql-connector-python==9.0.0
+mysqlclient==2.2.4
 packaging==24.1
 PyYAML==6.0.1
 referencing==0.35.1
