@@ -5,7 +5,7 @@
     parameters:
       - name: user_id
         in: path
-        type: integer
+        type: string
         required: true
         description: The unique id of the user
     responses:

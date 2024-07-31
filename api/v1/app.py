@@ -6,9 +6,25 @@ from flask_cors import CORS
 from flasgger import Swagger
 from models import storage
 from api.v1.views import app_views
+from api.v1.email import mail  # Import the mail instance
+from dotenv import load_dotenv  # Import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.config['MAIL_SERVER'] = environ.get('MAIL_SERVER', 'smtp.example.com')
+app.config['MAIL_PORT'] = environ.get('MAIL_PORT', 587)
+app.config['MAIL_USE_TLS'] = environ.get('MAIL_USE_TLS', True)
+app.config['MAIL_USERNAME'] = environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = environ.get('MAIL_DEFAULT_SENDER')
+
+# Initialize Flask-Mail
+mail.init_app(app)
+
 app.register_blueprint(app_views)
 # cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})

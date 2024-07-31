@@ -38,6 +38,7 @@ def register_user():
         return make_response(jsonify(message="Email already exists"), 409)
 
 
+
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/user/all_users.yml')
 def get_users():
