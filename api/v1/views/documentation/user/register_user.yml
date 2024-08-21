@@ -9,13 +9,13 @@
         requires:
           - email:
           - password:
-          - name:
+          - confirm_password:
         properties:
-          name:
-            type: string
           email:
             type: string
           password:
+            type: string
+          confirm_password:
             type: string
 
     responses:

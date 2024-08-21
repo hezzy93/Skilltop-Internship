@@ -17,14 +17,18 @@ def register_user():
     if not request.get_json():
         abort(400, description="Not a JSON")
 
-    if 'name' not in request.get_json():
-        abort(400, description="Name is required")
+    
     if 'email' not in request.get_json():
         abort(400, description="Email is required")
     if 'password' not in request.get_json():
         abort(400, description="Password is required")
-
+    if 'confirm_password' not in request.get_json():
+        abort(400, description="Confirm assword is required")
     data = request.get_json()
+    # Check if passwords match
+    if data['password'] != data['confirm_password']:
+        abort(400, description="Passwords do not match")
+    
     instance = User(**data)
     try:  # To handle Duplicate email
         # Add the new user to the session

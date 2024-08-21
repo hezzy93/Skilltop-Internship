@@ -35,7 +35,6 @@ class User(BaseModel, Base):
     """
     __tablename__ = 'users'
 
-    name = Column(String(150), nullable=False)
     email = Column(String(200), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
     user_role = Column(Integer, default=0, nullable=False)
